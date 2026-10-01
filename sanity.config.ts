@@ -5,12 +5,32 @@ import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'balqismjproperty',
+  title: 'BalqisMJ Property Admin',
 
   projectId: 'oul3nr7p',
   dataset: 'production',
 
-  plugins: [structureTool(), visionTool()],
+  plugins: [
+    structureTool({
+      structure: (S) =>
+        S.list()
+          .title('Content')
+          .items([
+            S.listItem()
+              .title('Listings')
+              .schemaType('listing')
+              .child(
+                S.documentTypeList('listing')
+                  .title('Listings')
+                  .defaultOrdering([
+                    {field: 'postedDate', direction: 'desc'},
+                    {field: '_createdAt', direction: 'desc'},
+                  ]),
+              ),
+          ]),
+    }),
+    visionTool(),
+  ],
 
   schema: {
     types: schemaTypes,
