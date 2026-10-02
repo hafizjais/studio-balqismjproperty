@@ -27,6 +27,17 @@ export default defineConfig({
                     {field: '_createdAt', direction: 'desc'},
                   ]),
               ),
+            S.listItem()
+              .title('Rental')
+              .schemaType('rental')
+              .child(
+                S.documentTypeList('rental')
+                  .title('Rental')
+                  .defaultOrdering([
+                    {field: 'postedDate', direction: 'asc'},
+                    {field: '_createdAt', direction: 'asc'},
+                  ]),
+              ),
           ]),
     }),
     visionTool(),
