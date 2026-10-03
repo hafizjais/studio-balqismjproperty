@@ -20,7 +20,7 @@ const SUB_TYPE_SUGGESTIONS = [
 
 export const listing = defineType({
   name: 'listing',
-  title: 'Listing',
+  title: 'Subsale',
   type: 'document',
   fields: [
     defineField({

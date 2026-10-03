@@ -17,11 +17,11 @@ export default defineConfig({
           .title('Content')
           .items([
             S.listItem()
-              .title('Listings')
+              .title('Subsale')
               .schemaType('listing')
               .child(
                 S.documentTypeList('listing')
-                  .title('Listings')
+                  .title('Subsale')
                   .defaultOrdering([
                     {field: 'postedDate', direction: 'desc'},
                     {field: '_createdAt', direction: 'desc'},
@@ -37,6 +37,36 @@ export default defineConfig({
                     {field: 'postedDate', direction: 'asc'},
                     {field: '_createdAt', direction: 'asc'},
                   ]),
+              ),
+            S.listItem()
+              .title('Shop Lot')
+              .schemaType('shoplot')
+              .child(
+                S.documentTypeList('shoplot')
+                  .title('Shop Lot')
+                  .defaultOrdering([
+                    {field: 'postedDate', direction: 'asc'},
+                    {field: '_createdAt', direction: 'asc'},
+                  ]),
+              ),
+            S.listItem()
+              .title('Land')
+              .schemaType('land')
+              .child(
+                S.documentTypeList('land')
+                  .title('Land')
+                  .defaultOrdering([
+                    {field: 'postedDate', direction: 'asc'},
+                    {field: '_createdAt', direction: 'asc'},
+                  ]),
+              ),
+            S.listItem()
+              .title('Project Unit Types')
+              .schemaType('projectUnit')
+              .child(
+                S.documentTypeList('projectUnit')
+                  .title('Project Unit Types')
+                  .defaultOrdering([{field: 'projectName', direction: 'asc'}]),
               ),
           ]),
     }),
